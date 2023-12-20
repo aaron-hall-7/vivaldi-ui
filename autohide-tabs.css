@@ -3,17 +3,19 @@ Originally built from:
 https://forum.vivaldi.net/topic/82900/collapsing-vertical-tabs-that-expand-on-hover-with-and-without-floating-tabs
  */
 
-#main .inner > div:has(#tabs-tabbar-container:is(.left, .right)):not(:hover),
-#tabs-tabbar-container:not(:hover):is(.left, .right),
-#main .inner > div:is(.tabbar-wrapper) > div:is(.tabbar-wrapper) > div:is(.tabs-left, .button-toolbar.workspace-popup.tabbar-workspace-button):not(:hover) {
+#main .inner div.tabbar-wrapper div.tabbar-wrapper:hover,
+#main .inner div.tabbar-wrapper div.tabbar-wrapper div:is(#tabs-tabbar-container):hover {
+    width: 222px !important;
+    transition: width 0.25s;
+}
+
+#main .inner div.tabbar-wrapper div.tabbar-wrapper:not(:hover),
+#main .inner div.tabbar-wrapper div.tabbar-wrapper div:is(#tabs-tabbar-container):not(:hover),
+#main .inner > div:is(.tabbar-wrapper) > div:is(.tabbar-wrapper) > div:is(.tabs-left, .button-toolbar.workspace-popup.tabbar-workspace-button):not(:hover){
     width: 60px !important;
     transition: width 0.25s;
 }
 
-#main .inner > div:has(#tabs-tabbar-container:is(.left, .right)):hover,
-#main .inner > div:is(.tabbar-wrapper) > div:is(.tabbar-wrapper) > div:is(.tabs-left, .button-toolbar.workspace-popup.tabbar-workspace-button):hover {
-    width: 222px;
-}
 
 #main .inner > div:has(#tabs-tabbar-container:is(.left, .right)) {
     position: absolute;
@@ -25,4 +27,9 @@ https://forum.vivaldi.net/topic/82900/collapsing-vertical-tabs-that-expand-on-ho
 
 #main .inner > #webview-container {
     margin-left: 60px;
+}
+
+/* Hide the down arrow on workspaces */
+#main .inner span.button-toolbar-menu-indicator {
+    display: none;
 }
